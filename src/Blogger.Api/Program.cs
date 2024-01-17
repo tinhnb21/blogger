@@ -1,3 +1,4 @@
+using Blogger.Api;
 using Blogger.Core.Domain.Identity;
 using Blogger.Data;
 using Microsoft.AspNetCore.Identity;
@@ -53,5 +54,8 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+//Seeding data
+app.MigrateDatabase();
 
 app.Run();
