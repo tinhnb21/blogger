@@ -2,7 +2,7 @@
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace Blogger.Api
+namespace Blogger.Api.Filters
 {
     public class SwaggerNullableParameterFilter : IParameterFilter
     {
@@ -10,7 +10,7 @@ namespace Blogger.Api
         {
             if (!parameter.Schema.Nullable && (context.ApiParameterDescription.Type.IsNullableType() || !context.ApiParameterDescription.Type.IsValueType))
             {
-                parameter.Schema.Nullable = true;                
+                parameter.Schema.Nullable = true;
             }
         }
     }

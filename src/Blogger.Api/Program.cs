@@ -1,4 +1,5 @@
 using Blogger.Api;
+using Blogger.Api.Filters;
 using Blogger.Api.Services;
 using Blogger.Core.ConfigOptions;
 using Blogger.Core.Domain.Identity;
