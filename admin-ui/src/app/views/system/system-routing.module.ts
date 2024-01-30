@@ -1,13 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { WidgetsComponent } from './widgets/widgets.component';
+import { UserComponent } from './users/user.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: WidgetsComponent,
+    redirectTo: 'users',
+    pathMatch: 'full',
+  },
+  {
+    path: 'users',
+    component: UserComponent,
     data: {
-      title: 'Widgets',
+      title: 'Users',
     },
   },
 ];
@@ -16,4 +21,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class WidgetsRoutingModule {}
+export class SystemRoutingModule {}
