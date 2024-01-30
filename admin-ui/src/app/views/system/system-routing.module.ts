@@ -12,7 +12,7 @@ const routes: Routes = [
     path: 'users',
     component: UserComponent,
     data: {
-      title: 'Users',
+      title: 'Người dùng',
     },
   },
 ];

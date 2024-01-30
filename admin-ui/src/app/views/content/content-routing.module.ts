@@ -12,7 +12,7 @@ const routes: Routes = [
     path: 'posts',
     component: PostComponent,
     data: {
-      title: 'Posts',
+      title: 'Bài viết',
     },
   },
 ];
