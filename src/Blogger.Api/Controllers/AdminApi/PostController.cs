@@ -3,6 +3,7 @@ using Blogger.Core.Domain.Content;
 using Blogger.Core.Models;
 using Blogger.Core.Models.Content;
 using Blogger.Core.SeedWorks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Blogger.Api.Controllers.AdminApi
