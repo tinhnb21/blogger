@@ -1,4 +1,5 @@
 using Blogger.Api;
+using Blogger.Api.Authorization;
 using Blogger.Api.Filters;
 using Blogger.Api.Services;
 using Blogger.Core.ConfigOptions;
@@ -9,6 +10,7 @@ using Blogger.Data;
 using Blogger.Data.Repositories;
 using Blogger.Data.SeedWorks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -21,9 +23,13 @@ var configuration = builder.Configuration;
 var connectionString = configuration.GetConnectionString("DefaultConnection");
 
 var BloggerCorsPolicy = "BloggerCorsPolicy";
+
+builder.Services.AddSingleton<IAuthorizationPolicyProvider, PermissionPolicyProvider>();
+builder.Services.AddScoped<IAuthorizationHandler, PermissionAuthorizationHandler>();
 builder.Services.AddCors(o => o.AddPolicy(BloggerCorsPolicy, builder =>
 {
-    builder.AllowAnyOrigin().AllowAnyHeader().WithOrigins(configuration["AllowedOrigins"]).AllowCredentials();
+    //builder.AllowAnyOrigin().AllowAnyHeader().WithOrigins(configuration["AllowedOrigins"]).AllowCredentials();
+    builder.AllowAnyMethod().AllowAnyHeader().WithOrigins(configuration["AllowedOrigins"]).AllowCredentials();
 }));
 
 //Config DB Context and ASP.NET Core Identity
