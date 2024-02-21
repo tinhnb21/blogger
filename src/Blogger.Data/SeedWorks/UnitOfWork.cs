@@ -12,9 +12,13 @@ namespace Blogger.Data.SeedWorks
         {
             _context = context;
             Posts = new PostRepository(context, mapper);
+            PostCategories = new PostCategoryRepository(context, mapper);
         }
 
         public IPostRepository Posts { get; private set; }
+
+        public IPostCategoryRepository PostCategories { get; private set; }
+
 
         public async Task<int> CompleteAsync()
         {
