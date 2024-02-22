@@ -12,6 +12,13 @@ namespace Blogger.Core.Models.Content
         public string? Thumbnail { get; set; }
         public int ViewCount { get; set; }
         public DateTime DateCreated { get; set; }
+        public required string CategorySlug { set; get; }
+
+        public required string CategoryName { set; get; }
+        public string AuthorUserName { set; get; }
+        public string AuthorName { set; get; }
+
+        public PostStatus Status { set; get; }
 
         public class AutoMapperProfiles : Profile
         {

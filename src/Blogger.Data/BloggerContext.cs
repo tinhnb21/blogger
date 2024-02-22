@@ -1,5 +1,6 @@
 ﻿using Blogger.Core.Domain.Content;
 using Blogger.Core.Domain.Identity;
+using Blogger.Core.SeedWorks.Contants;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -49,5 +50,23 @@ namespace Blogger.Data
 
         //    return base.SaveChangesAsync(cancellationToken);
         //}
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            var entries = ChangeTracker
+               .Entries()
+               .Where(e => e.State == EntityState.Added);
+
+            foreach (var entityEntry in entries)
+            {
+                var dateCreatedProp = entityEntry.Entity.GetType().GetProperty(SystemConsts.DateCreatedField);
+                if (entityEntry.State == EntityState.Added
+                    && dateCreatedProp != null)
+                {
+                    dateCreatedProp.SetValue(entityEntry.Entity, DateTime.Now);
+                }
+            }
+            return base.SaveChangesAsync(cancellationToken);
+        }
     }
 }
