@@ -6,9 +6,11 @@ using Blogger.Core.ConfigOptions;
 using Blogger.Core.Domain.Identity;
 using Blogger.Core.Models.Content;
 using Blogger.Core.SeedWorks;
+using Blogger.Core.Services;
 using Blogger.Data;
 using Blogger.Data.Repositories;
 using Blogger.Data.SeedWorks;
+using Blogger.Data.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -86,6 +88,7 @@ builder.Services.AddScoped<SignInManager<AppUser>, SignInManager<AppUser>>();
 builder.Services.AddScoped<UserManager<AppUser>, UserManager<AppUser>>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<RoleManager<AppRole>, RoleManager<AppRole>>();
+builder.Services.AddScoped<IRoyaltyService, RoyaltyService>();
 
 //Default config for ASP.NET Core
 builder.Services.AddControllers();

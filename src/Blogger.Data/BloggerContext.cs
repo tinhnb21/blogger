@@ -1,5 +1,6 @@
 ﻿using Blogger.Core.Domain.Content;
 using Blogger.Core.Domain.Identity;
+using Blogger.Core.Domain.Royalty;
 using Blogger.Core.SeedWorks.Contants;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -20,6 +21,7 @@ namespace Blogger.Data
         public DbSet<PostActivityLog> PostActivityLogs { get; set; }
         public DbSet<Series> Series { get; set; }
         public DbSet<PostInSeries> PostInSeries { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

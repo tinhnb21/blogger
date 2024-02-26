@@ -59,6 +59,7 @@ namespace Blogger.Core.Domain.Content
         public string AuthorUserName { set; get; }
         [MaxLength(250)]
         public string AuthorName { set; get; }
+        public DateTime? PaidDate { get; set; }
     }
 
     public enum PostStatus
