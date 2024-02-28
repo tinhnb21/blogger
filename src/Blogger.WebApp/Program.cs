@@ -1,5 +1,6 @@
 using Blogger.Core.ConfigOptions;
 using Blogger.Core.Domain.Identity;
+using Blogger.Core.Events.LoginSuccessed;
 using Blogger.Core.Models.Content;
 using Blogger.Core.SeedWorks;
 using Blogger.Data;
@@ -59,6 +60,7 @@ builder.Services.AddScoped<IUserClaimsPrincipalFactory<AppUser>,
 #endregion
 
 builder.Services.AddAutoMapper(typeof(PostInListDto));
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(LoginSuccessedEvent).Assembly));
 
 #region Configure Services
 // Add services to the container.

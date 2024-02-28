@@ -11,6 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Blogger.Core\Blogger.Core.csproj" />
     <ProjectReference Include="..\Blogger.Data\Blogger.Data.csproj" />
   </ItemGroup>
