@@ -10,4 +10,9 @@
     <Folder Include="wwwroot\assets\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Blogger.Core\Blogger.Core.csproj" />
+    <ProjectReference Include="..\Blogger.Data\Blogger.Data.csproj" />
+  </ItemGroup>
+
 </Project>
