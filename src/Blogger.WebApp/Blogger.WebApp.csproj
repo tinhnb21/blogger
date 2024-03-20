@@ -4,6 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+	  <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,6 +20,14 @@
   <ItemGroup>
     <ProjectReference Include="..\Blogger.Core\Blogger.Core.csproj" />
     <ProjectReference Include="..\Blogger.Data\Blogger.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.UAT.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

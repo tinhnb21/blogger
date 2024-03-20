@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <InvariantGlobalization>false</InvariantGlobalization>
+	  <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,6 +20,14 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.UAT.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

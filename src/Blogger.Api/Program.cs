@@ -21,6 +21,10 @@ using System.Reflection;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Configuration.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                      .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true);
+
 var configuration = builder.Configuration;
 var connectionString = configuration.GetConnectionString("DefaultConnection");
 
@@ -30,7 +34,7 @@ builder.Services.AddSingleton<IAuthorizationPolicyProvider, PermissionPolicyProv
 builder.Services.AddScoped<IAuthorizationHandler, PermissionAuthorizationHandler>();
 builder.Services.AddCors(o => o.AddPolicy(BloggerCorsPolicy, builder =>
 {
-    builder.AllowAnyMethod().AllowAnyHeader().WithOrigins(configuration["AllowedOrigins"]).AllowCredentials();
+    builder.AllowAnyMethod().AllowAnyHeader().WithOrigins(configuration["AllowedOrigins"]?.Split(";")).AllowCredentials();
 }));
 
 //Config DB Context and ASP.NET Core Identity
