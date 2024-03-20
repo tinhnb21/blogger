@@ -1,9 +1,5 @@
 import { NgModule } from '@angular/core';
-import {
-  HashLocationStrategy,
-  LocationStrategy,
-  PathLocationStrategy,
-} from '@angular/common';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -65,12 +61,12 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenStorageService } from './shared/services/token-storage.service';
 import { AuthGuard } from './shared/auth.guard';
 import { TokenInterceptor } from './shared/interceptors/token.interceptor';
-import { GlobalHttpInterceptorService } from './shared/interceptors/error-handle.interceptor';
 
 import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 import { UtilityService } from './shared/services/utility.service';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { UploadService } from './shared/services/upload.service';
+import { BroadcastService } from 'src/app/shared/services/boardcast.service';
 
 const APP_CONTAINERS = [
   DefaultFooterComponent,
@@ -123,11 +119,6 @@ const APP_CONTAINERS = [
       multi: true,
     },
     {
-      provide: HTTP_INTERCEPTORS,
-      useClass: GlobalHttpInterceptorService,
-      multi: true,
-    },
-    {
       provide: LocationStrategy,
       useClass: HashLocationStrategy,
     },
@@ -150,6 +141,7 @@ const APP_CONTAINERS = [
     UtilityService,
     ConfirmationService,
     UploadService,
+    BroadcastService,
   ],
   bootstrap: [AppComponent],
 })
