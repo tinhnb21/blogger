@@ -43,7 +43,7 @@ namespace Blogger.Core.SeedWorks.Contants
             [Description("Sửa danh mục bài viết")]
             public const string Edit = "Permissions.PostCategories.Edit";
             [Description("Xóa danh mục bài viết")]
-            public const string Delete = "Permissions.UsPostCategoriesers.Delete";
+            public const string Delete = "Permissions.PostCategories.Delete";
         }
 
         public static class Posts
