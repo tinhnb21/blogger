@@ -41,7 +41,7 @@ builder.Services.AddCors(o => o.AddPolicy(BloggerCorsPolicy, builder =>
 builder.Services.AddDbContext<BloggerContext>(options => options.UseSqlServer(connectionString));
 
 builder.Services.AddIdentity<AppUser, AppRole>(options => options.SignIn.RequireConfirmedAccount = false)
-    .AddEntityFrameworkStores<BloggerContext>();
+    .AddEntityFrameworkStores<BloggerContext>().AddDefaultTokenProviders();
 
 builder.Services.Configure<IdentityOptions>(options =>
 {
