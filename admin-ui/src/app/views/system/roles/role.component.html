@@ -3,11 +3,13 @@
   <div class="row">
     <div class="col">
       <button appPermission appPolicy="Permissons.Roles.Create" pButton type="button" label="Thêm" icon="fa fa-plus"
-        (click)="showAddModal()" class="p-button-sm p-button-success ms-1"></button>
+        (click)="showAddModal()" class="p-button-sm p-button-success ms-1 b-r-4"></button>
       <button appPermission appPolicy="Permissons.Roles.Delete" pButton type="button" label="Xóa" icon="fa fa-trash"
-        *ngIf="selectedItems.length > 0" (click)="deleteItems()" class="p-button-sm p-button-danger ms-1"></button>
+        *ngIf="selectedItems.length > 0" (click)="deleteItems()"
+        class="p-button-sm p-button-danger ms-1 b-r-4"></button>
       <button appPermission appPolicy="Permissons.Roles.Edit" pButton type="button" label="Sửa" icon="fa fa-edit"
-        *ngIf="selectedItems.length == 1" (click)="showEditModal()" class="p-button-sm p-button-warning ms-1"></button>
+        *ngIf="selectedItems.length == 1" (click)="showEditModal()"
+        class="p-button-sm p-button-warning ms-1 b-r-4"></button>
     </div>
     <div class="col">
       <div class="row">
@@ -16,7 +18,7 @@
             type="text" />
         </div>
         <div class="col">
-          <button type="button" pButton (click)="loadData()">Tìm</button>
+          <button type="button" pButton (click)="loadData()" class="b-r-4">Tìm</button>
         </div>
       </div>
     </div>
@@ -43,7 +45,8 @@
           <td>{{ row.name }}</td>
           <td>{{ row.displayName }}</td>
           <td>
-            <button pButton class="p-button-sm" (click)="showPermissionModal(row.id, row.name)">Phân quyền</button>
+            <button pButton class="p-button-sm b-r-4" (click)="showPermissionModal(row.id, row.name)">Phân
+              quyền</button>
           </td>
         </tr>
       </ng-template>
