@@ -1,13 +1,13 @@
 <form class="form-horizontal form-label-left" skipValidation [formGroup]="form" (ngSubmit)="saveChange()">
   <p-panel #pnlDetail header="Phân quyền cho role" [toggleable]="true" [collapsed]="false">
-    <div [id]="permission.value" class="field-checkbox" *ngFor="let permission of permissions; let i = index">
+    <div [id]="permission.value" class="field-checkbox mb-2" *ngFor="let permission of permissions; let i = index">
       <p-checkbox [value]="permission" [(ngModel)]="selectedPermissions" class="mb-1" [inputId]="permission.value"
         [ngModelOptions]="{ standalone: true }"></p-checkbox>
-      <label for="permission.value">{{ permission.displayName }}</label>
+      <label class="m-l-8" for="permission.value">{{ permission.displayName }}</label>
     </div>
 
     <ng-template pTemplate="footer">
-      <button type="submit" pButton [disabled]="!form.valid || btnDisabled">
+      <button type="submit" pButton [disabled]="!form.valid || btnDisabled" class="b-r-4">
         {{ saveBtnName }}
       </button>
     </ng-template>

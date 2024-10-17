@@ -19,7 +19,7 @@
               placeholder="Nhập từ khóa..." type="text" />
           </div>
           <div class="col">
-            <button type="button" pButton (click)="loadData()" class="b-r-4">Tìm</button>
+            <button type="button" pButton (click)="loadData()" class="b-r-4">Tìm kiếm</button>
           </div>
         </div>
       </div>
@@ -60,12 +60,12 @@
             </td>
             <td>
               <button pButton pRipple type="button" icon="pi pi-key" pTooltip="Đặt mật khẩu" tooltipPosition="top"
-                class="p-button-rounded p-button-text" (click)="setPassword(row.id)"></button>
+                title="Đổi mật khẩu" class="p-button-rounded p-button-text" (click)="setPassword(row.id)"></button>
               <button pButton pRipple type="button" icon="pi pi-envelope" pTooltip="Đặt Email" tooltipPosition="top"
-                (click)="changeEmail(row.id)" class="p-button-rounded p-button-text"></button>
+                title="Gửi email" (click)="changeEmail(row.id)" class="p-button-rounded p-button-text"></button>
 
               <button pButton pRipple type="button" icon="pi pi-users" pTooltip="Gán vai trò" tooltipPosition="top"
-                (click)="assignRole(row.id)" class="p-button-rounded p-button-text"></button>
+                title="Gán vai trò" (click)="assignRole(row.id)" class="p-button-rounded p-button-text"></button>
             </td>
           </tr>
         </ng-template>
