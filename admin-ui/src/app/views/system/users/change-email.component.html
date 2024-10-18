@@ -2,7 +2,7 @@
   <p-panel #pnlDetail header="Thông tin" [toggleable]="true" [collapsed]="false">
     <div class="formgrid grid">
       <div class="field col-12 md:col-6">
-        <label for="email">Email <span class="required">*</span></label>
+        <label class="m-b-4" for="email">Email <span class="required">*</span></label>
         <input id="email" type="text" pInputText [pKeyFilter]="noSpecial" formControlName="email"
           [style]="{ width: '100%' }" />
         <app-validation-message [entityForm]="form" fieldName="email"
