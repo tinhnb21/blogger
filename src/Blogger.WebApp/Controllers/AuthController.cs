@@ -5,12 +5,14 @@ using Blogger.Core.Events.RegisterSuccessed;
 using Blogger.Core.SeedWorks.Contants;
 using Blogger.WebApp.Extensions;
 using Blogger.WebApp.Models;
+using Blogger.WebApp.Services;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using IEmailSender = Blogger.WebApp.Services.IEmailSender;
 
 namespace Blogger.WebApp.Controllers
 {
@@ -140,13 +142,13 @@ namespace Blogger.WebApp.Controllers
 
             var callbackUrl = Url.ResetPasswordCallbackLink(user.Id.ToString(), code, Request.Scheme);
 
-            //var emailData = new EmailData
-            //{
-            //    ToEmail = user.Email ?? string.Empty,
-            //    Subject = $"{_systemConfig.AppName} - Lấy lại mật khẩu",
-            //    Content = $"Chào {user.FirstName}. Bạn vừa gửi yêu cầu lấy lại mật khẩu tại {_systemConfig.AppName}. Click: <a href='{callbackUrl}'>vào đây</a> để đặt lại mật khẩu. Trân trọng."
-            //};
-            //await _emailSender.SendEmail(emailData);
+            var emailData = new EmailData
+            {
+                ToEmail = user.Email ?? string.Empty,
+                Subject = $"{_systemConfig.AppName} - Lấy lại mật khẩu",
+                Content = $"Chào {user.FirstName}. Bạn vừa gửi yêu cầu lấy lại mật khẩu tại {_systemConfig.AppName}. Click: <a href='{callbackUrl}'>vào đây</a> để đặt lại mật khẩu. Trân trọng."
+            };
+            await _emailSender.SendEmail(emailData);
 
 
             TempData[SystemConsts.FormSuccessMsg] = "You need to check mail to reset password";
