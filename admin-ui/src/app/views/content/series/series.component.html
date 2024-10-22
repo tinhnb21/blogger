@@ -4,25 +4,26 @@
   </p-header>
   <div class="row">
     <div class="col-6">
-      <button appPermission appPolicy="Permissons.Series.Create" pButton type="button" label="Thêm" icon="fa fa-plus"
-        (click)="showAddModal()" class="p-button-sm ms-1 p-button-info b-r-4"></button>
+      <button appPermission appPolicy="Permissons.Series.Create" pButton type="button" label="Thêm mới"
+        icon="fa fa-plus" (click)="showAddModal()" class="p-button-sm ms-1 p-button-info b-r-4 small-button"></button>
       <button appPermission appPolicy="Permissons.Series.Delete" pButton type="button" label="Xóa" icon="fa fa-trash"
-        class="p-button-sm p-button-danger ms-1 b-r-4" *ngIf="selectedItems.length > 0"
+        class="p-button-sm p-button-danger ms-1 b-r-4 small-button" *ngIf="selectedItems.length > 0"
         (click)="deleteItems()"></button>
       <button appPermission appPolicy="Permissons.Series.Edit" pButton type="button" label="Sửa" icon="fa fa-edit"
-        class="p-button-sm ms-1 b-r-4 p-button-help" *ngIf="selectedItems.length== 1"
+        class="p-button-sm ms-1 b-r-4 small-button p-button-help" *ngIf="selectedItems.length== 1"
         (click)="showEditModal()"></button>
       <button appPermission appPolicy="Permissons.Series.Edit" pButton type="button" label="Bài viết" icon="fa fa-edit"
-        class="p-button-sm ms-1 b-r-4 p-button-info" *ngIf="selectedItems.length== 1" (click)="showPosts()"></button>
+        class="p-button-sm ms-1 b-r-4 small-button p-button-info" *ngIf="selectedItems.length== 1"
+        (click)="showPosts()"></button>
     </div>
     <div class="col-6">
       <div class="row">
         <div class="col">
-          <input id="txtKeyword" pInputText (keyup.enter)="loadData()" [(ngModel)]="keyword"
+          <input id="txtKeyword" pInputText (keyup.enter)="loadData()" [(ngModel)]="keyword" class="small-input"
             placeholder="Nhập từ khóa..." type="text">
         </div>
         <div class="col">
-          <button type="button" pButton (click)="loadData()" class="b-r-4">Tìm</button>
+          <button type="button" pButton (click)="loadData()" class="b-r-4 small-button">Tìm kiếm</button>
         </div>
       </div>
 

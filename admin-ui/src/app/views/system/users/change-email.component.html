@@ -3,14 +3,14 @@
     <div class="formgrid grid">
       <div class="field col-12 md:col-6">
         <label class="m-b-4" for="email">Email <span class="required">*</span></label>
-        <input id="email" type="text" pInputText [pKeyFilter]="noSpecial" formControlName="email"
-          [style]="{ width: '100%' }" />
+        <input id="email" type="text" pInputText [pKeyFilter]="noSpecial" formControlName="email" class="small-input"
+          placeholder="Nhập..." [style]="{ width: '100%' }" />
         <app-validation-message [entityForm]="form" fieldName="email"
           [validationMessages]="validationMessages"></app-validation-message>
       </div>
     </div>
     <ng-template pTemplate="footer">
-      <button type="submit" pButton [disabled]="!form.valid || btnDisabled" class="b-r-4">
+      <button type="submit" pButton [disabled]="!form.valid || btnDisabled" class="b-r-4 small-button">
         {{ saveBtnName }}
       </button>
     </ng-template>

@@ -3,28 +3,28 @@
     <p-header> Quản lý bài viết </p-header>
     <div class="row">
       <div class="col-4">
-        <button appPermission appPolicy="Permissons.Posts.Add" pButton type="button" label="Thêm" icon="fa fa-plus"
-          (click)="showAddModal()" class="p-button-sm p-button-success ms-1 b-r-4"></button>
+        <button appPermission appPolicy="Permissons.Posts.Add" pButton type="button" label="Thêm mới" icon="fa fa-plus"
+          (click)="showAddModal()" class="p-button-sm p-button-success ms-1 b-r-4 small-button"></button>
         <button appPermission appPolicy="Permissons.Posts.Delete" pButton type="button" label="Xóa" icon="fa fa-trash"
-          class="p-button-sm p-button-danger ms-1 b-r-4" *ngIf="selectedItems.length > 0"
+          class="p-button-sm p-button-danger ms-1 b-r-4 small-button" *ngIf="selectedItems.length > 0"
           (click)="deleteItems()"></button>
         <button appPermission appPolicy="Permissons.Posts.Edit" pButton type="button" label="Sửa" icon="fa fa-edit"
-          class="p-button-sm p-button-warning ms-1 b-r-4" *ngIf="selectedItems.length == 1"
+          class="p-button-sm p-button-warning ms-1 b-r-4 small-button" *ngIf="selectedItems.length == 1"
           (click)="showEditModal()"></button>
       </div>
       <div class="col-8">
         <div class="row">
           <div class="col">
-            <input id="txtKeyword" pInputText (keyup.enter)="loadData()" [(ngModel)]="keyword"
+            <input id="txtKeyword" pInputText (keyup.enter)="loadData()" [(ngModel)]="keyword" class="small-input"
               placeholder="Nhập từ khóa..." type="text" />
           </div>
           <div class="col">
-            <p-dropdown [options]="postCategories" (onChange)="loadData()" [style]="{ width: '100%' }"
+            <p-dropdown [options]="postCategories" (onChange)="loadData()" [style]="{ width: '100%', height: '34px' }"
               placeholder="Chọn danh mục" [showClear]="true" [(ngModel)]="categoryId">
             </p-dropdown>
           </div>
           <div class="col">
-            <button type="button" pButton (click)="loadData()" class="b-r-4">Tìm kiếm</button>
+            <button type="button" pButton (click)="loadData()" class="b-r-4 small-button">Tìm kiếm</button>
           </div>
         </div>
       </div>
