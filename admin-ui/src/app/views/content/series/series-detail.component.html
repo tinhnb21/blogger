@@ -21,14 +21,14 @@
         <div class="field m-b-16 col-6">
           <label for="description" class="block m-b-4">Mô tả ngắn <span class="required">*</span></label>
           <textarea id="description" type="text" rows="2" pInputTextarea formControlName="description"
-            [style]="{ width: '100%' }"></textarea>
+            placeholder="Nhập..." [style]="{ width: '100%' }"></textarea>
           <app-validation-message [entityForm]="form" fieldName="description"
             [validationMessages]="validationMessages"></app-validation-message>
         </div>
         <div class="field m-b-16 col-6">
           <label class="m-b-4" for="seoDescription">Mô tả SEO</label>
           <textarea id="seoDescription" type="text" rows="2" pInputTextarea [pKeyFilter]="noSpecial"
-            formControlName="seoDescription" [style]="{ width: '100%' }"></textarea>
+            placeholder="Nhập..." formControlName="seoDescription" [style]="{ width: '100%' }"></textarea>
         </div>
       </div>
       <div class="field m-b-16 col-12 md:col-6">
