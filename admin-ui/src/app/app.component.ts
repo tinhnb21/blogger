@@ -8,7 +8,7 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-root',
   template:
-    '<p-toast position="top-center"></p-toast><p-confirmDialog header="Xác nhận" acceptLabel="Có" rejectLabel="Không" icon="pi pi-exclamation-triangle"></p-confirmDialog><router-outlet></router-outlet>',
+    '<p-toast position="top-right"></p-toast><p-confirmDialog acceptButtonStyleClass="p-button-danger p-button-text b-r-4 h-32" rejectButtonStyleClass="p-button-text p-button-text b-r-4 h-32" acceptIcon="none" rejectIcon="none" header="Xác nhận" acceptLabel="Có" rejectLabel="Không" icon="pi pi-exclamation-triangle"></p-confirmDialog><router-outlet></router-outlet>',
 })
 export class AppComponent implements OnInit {
   title = 'Admin UI';
