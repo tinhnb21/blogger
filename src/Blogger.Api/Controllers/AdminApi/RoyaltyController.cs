@@ -36,20 +36,20 @@ namespace Blogger.Api.Controllers.AdminApi
         [HttpGet]
         [Route("Royalty-report-by-user")]
         [Authorize(Royalty.View)]
-        public async Task<ActionResult<List<RoyaltyReportByUserDto>>> GetRoyaltyReportByUser(Guid? userId,
+        public async Task<ActionResult<List<RoyaltyReportByUserDto>>> GetRoyaltyReportByUser(string? username,
           int fromMonth, int fromYear, int toMonth, int toYear)
         {
-            var result = await _RoyaltyService.GetRoyaltyReportByUserAsync(userId, fromMonth, fromYear, toMonth, toYear);
+            var result = await _RoyaltyService.GetRoyaltyReportByUserAsync(username, fromMonth, fromYear, toMonth, toYear);
             return Ok(result);
         }
 
         [HttpGet]
         [Route("Royalty-report-by-month")]
         [Authorize(Royalty.View)]
-        public async Task<ActionResult<List<RoyaltyReportByMonthDto>>> GetRoyaltyReportByMonth(Guid? userId,
+        public async Task<ActionResult<List<RoyaltyReportByMonthDto>>> GetRoyaltyReportByMonth(string? username,
          int fromMonth, int fromYear, int toMonth, int toYear)
         {
-            var result = await _RoyaltyService.GetRoyaltyReportByMonthAsync(userId, fromMonth, fromYear, toMonth, toYear);
+            var result = await _RoyaltyService.GetRoyaltyReportByMonthAsync(username, fromMonth, fromYear, toMonth, toYear);
             return Ok(result);
         }
 

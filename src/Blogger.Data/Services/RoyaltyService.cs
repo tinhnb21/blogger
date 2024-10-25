@@ -22,7 +22,7 @@ namespace Blogger.Data.Services
             _unitOfWork = unitOfWork;
             _configuration = configuration;
         }
-        public async Task<List<RoyaltyReportByMonthDto>> GetRoyaltyReportByMonthAsync(Guid? userId, int fromMonth, int fromYear, int toMonth, int toYear)
+        public async Task<List<RoyaltyReportByMonthDto>> GetRoyaltyReportByMonthAsync(string? username, int fromMonth, int fromYear, int toMonth, int toYear)
         {
             using (var conn = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
             {
@@ -40,13 +40,14 @@ namespace Blogger.Data.Services
                                 group by 
                                     datepart(month,p.DateCreated),
                                     datepart(year,p.DateCreated),
-	                                p.AuthorUserId
+	                                p.AuthorUserId,
+                                    p.AuthorUserName
                                 having 
                                     (@fromMonth = 0 or datepart(month,p.DateCreated) >= @fromMonth) 
                                     and (@fromYear = 0 or datepart(year,p.DateCreated) >= @fromYear)
                                     and (@fromYear = 0 or datepart(month,p.DateCreated) <= @toMonth)
                                     and (@toYear = 0 or datepart(year,p.DateCreated) <= @toYear)
-                                    and (@userId is null or p.AuthorUserId = @userId)";
+                                    and (@username is null or p.AuthorUserName like @username)";
 
                 var items = await conn.QueryAsync<RoyaltyReportByMonthDto>(coreSql, new
                 {
@@ -54,13 +55,13 @@ namespace Blogger.Data.Services
                     fromYear,
                     toMonth,
                     toYear,
-                    userId
+                    username
                 }, null, 120, CommandType.Text);
                 return items.ToList();
             }
         }
 
-        public async Task<List<RoyaltyReportByUserDto>> GetRoyaltyReportByUserAsync(Guid? userId, int fromMonth, int fromYear, int toMonth, int toYear)
+        public async Task<List<RoyaltyReportByUserDto>> GetRoyaltyReportByUserAsync(string? username, int fromMonth, int fromYear, int toMonth, int toYear)
         {
             using (var conn = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
             {
@@ -86,7 +87,7 @@ namespace Blogger.Data.Services
                                     and (@fromYear = 0 or datepart(year,p.DateCreated) >= @fromYear)
                                     and (@fromYear = 0 or datepart(month,p.DateCreated) <= @toMonth)
                                     and (@toYear = 0 or datepart(year,p.DateCreated) <= @toYear)
-                                    and (@userId is null or p.AuthorUserId = @userId)";
+                                    and (@username is null or u.UserName = @username)";
 
                 var items = await conn.QueryAsync<RoyaltyReportByUserDto>(coreSql, new
                 {
@@ -94,7 +95,7 @@ namespace Blogger.Data.Services
                     fromYear,
                     toMonth,
                     toYear,
-                    userId
+                    username
                 }, null, 120, CommandType.Text);
                 return items.ToList();
             }

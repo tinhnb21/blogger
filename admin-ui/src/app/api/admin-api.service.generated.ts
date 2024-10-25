@@ -1784,17 +1784,17 @@ export class AdminApiRoyaltyApiClient {
     }
 
     /**
-     * @param userId (optional) 
+     * @param username (optional) 
      * @param fromMonth (optional) 
      * @param fromYear (optional) 
      * @param toMonth (optional) 
      * @param toYear (optional) 
      * @return Success
      */
-    getRoyaltyReportByUser(userId?: string | null | undefined, fromMonth?: number | undefined, fromYear?: number | undefined, toMonth?: number | undefined, toYear?: number | undefined): Observable<RoyaltyReportByUserDto[]> {
+    getRoyaltyReportByUser(username?: string | null | undefined, fromMonth?: number | undefined, fromYear?: number | undefined, toMonth?: number | undefined, toYear?: number | undefined): Observable<RoyaltyReportByUserDto[]> {
         let url_ = this.baseUrl + "/api/admin/royalty/Royalty-report-by-user?";
-        if (userId !== undefined && userId !== null)
-            url_ += "userId=" + encodeURIComponent("" + userId) + "&";
+        if (username !== undefined && username !== null)
+            url_ += "username=" + encodeURIComponent("" + username) + "&";
         if (fromMonth === null)
             throw new Error("The parameter 'fromMonth' cannot be null.");
         else if (fromMonth !== undefined)
@@ -1865,17 +1865,17 @@ export class AdminApiRoyaltyApiClient {
     }
 
     /**
-     * @param userId (optional) 
+     * @param username (optional) 
      * @param fromMonth (optional) 
      * @param fromYear (optional) 
      * @param toMonth (optional) 
      * @param toYear (optional) 
      * @return Success
      */
-    getRoyaltyReportByMonth(userId?: string | null | undefined, fromMonth?: number | undefined, fromYear?: number | undefined, toMonth?: number | undefined, toYear?: number | undefined): Observable<RoyaltyReportByMonthDto[]> {
+    getRoyaltyReportByMonth(username?: string | null | undefined, fromMonth?: number | undefined, fromYear?: number | undefined, toMonth?: number | undefined, toYear?: number | undefined): Observable<RoyaltyReportByMonthDto[]> {
         let url_ = this.baseUrl + "/api/admin/royalty/Royalty-report-by-month?";
-        if (userId !== undefined && userId !== null)
-            url_ += "userId=" + encodeURIComponent("" + userId) + "&";
+        if (username !== undefined && username !== null)
+            url_ += "username=" + encodeURIComponent("" + username) + "&";
         if (fromMonth === null)
             throw new Error("The parameter 'fromMonth' cannot be null.");
         else if (fromMonth !== undefined)
