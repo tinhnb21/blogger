@@ -6,35 +6,38 @@
     <div class="row">
       <div class="col">
         <div class="row">
-          <div class="col-3">
+          <div class="col-3 flex-col">
             <input id="txtUserName" pInputText (keyup.enter)="loadData()" pInputText [(ngModel)]="userName"
-              class="small-input" placeholder="Nhập tài khoản..." type="text">
+              class="small-input " placeholder="Nhập tài khoản..." type="text">
           </div>
           <div class="col-7">
             <div class="row ">
               <div class="col-3">
-                <p-inputNumber id="fromMonth" [(ngModel)]="fromMonth" class="number small-input">
-                </p-inputNumber>
+                <label for="fromMonth">Từ tháng</label>
+                <input type="text" pInputText [(ngModel)]="fromMonth" id="fromMonth" class="small-input w-p-100"
+                  maxlength="2" (input)="onInput($event)" />
               </div>
               <div class="col-3">
-                <p-inputNumber id="fromYear" [(ngModel)]="fromYear" class="number small-input">
-                </p-inputNumber>
+                <label for="fromMonth">Từ năm</label>
+                <input type="text" pInputText [(ngModel)]="fromYear" id="fromYear" class="small-input w-p-100"
+                  maxlength="4" />
               </div>
               <div class="col-3">
-                <p-inputNumber id="toMonth" [(ngModel)]="toMonth" class="number small-input">
-                </p-inputNumber>
+                <label for="fromMonth">Đến tháng</label>
+                <input type="text" pInputText [(ngModel)]="toMonth" id="toMonth" class="small-input w-p-100"
+                  maxlength="2" />
               </div>
               <div class="col-3">
-                <p-inputNumber id="toYear" [(ngModel)]="toYear" class="number small-input">
-                </p-inputNumber>
+                <label for="fromMonth">Đến năm</label>
+                <input type="text" pInputText [(ngModel)]="toYear" id="toYear" class="small-input w-p-100"
+                  maxlength="4" />
               </div>
             </div>
           </div>
-          <div class="col-2">
+          <div class="col-2 flex-col">
             <button type="button" pButton (click)="loadData()" class="b-r-4 small-button">Tìm kiếm</button>
           </div>
         </div>
-
       </div>
     </div>
     <div class="row mt-3">

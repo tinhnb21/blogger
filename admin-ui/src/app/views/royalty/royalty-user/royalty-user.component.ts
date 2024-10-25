@@ -39,9 +39,17 @@ export class RoyaltyUserComponent implements OnInit, OnDestroy {
     this.loadData();
   }
 
+  onInput(event: any) {
+    let value = event.target.value;
+    value = value.replace(/\D/g, '');
+    if (value.startsWith('0')) {
+      value = value.substring(1);
+    }
+    event.target.value = value;
+  }
+
   loadData() {
     this.toggleBlockUI(true);
-
     this.RoyaltyApiClient.getRoyaltyReportByUser(
       this.userName,
       this.fromMonth,

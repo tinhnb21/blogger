@@ -40,6 +40,16 @@ export class TransactionComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.loadData();
   }
+
+  onInput(event: any) {
+    let value = event.target.value;
+    value = value.replace(/\D/g, '');
+    if (value.startsWith('0')) {
+      value = value.substring(1);
+    }
+    event.target.value = value;
+  }
+
   pageChanged(event: any): void {
     this.pageIndex = event.page + 1;
     this.pageSize = event.rows;
