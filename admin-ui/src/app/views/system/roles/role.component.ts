@@ -114,7 +114,7 @@ export class RoleComponent implements OnInit, OnDestroy {
         id: id,
       },
       header: 'Cập nhật quyền',
-      width: '70%',
+      width: '40%',
     });
     const dialogRef = this.dialogService.dialogComponentRefMap.get(ref);
     const dynamicComponent = dialogRef?.instance as DynamicDialogComponent;
@@ -131,7 +131,7 @@ export class RoleComponent implements OnInit, OnDestroy {
   showAddModal() {
     const ref = this.dialogService.open(RoleDetailComponent, {
       header: 'Thêm mới quyền',
-      width: '70%',
+      width: '40%',
     });
     const dialogRef = this.dialogService.dialogComponentRefMap.get(ref);
     const dynamicComponent = dialogRef?.instance as DynamicDialogComponent;

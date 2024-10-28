@@ -158,7 +158,7 @@ export class UserComponent implements OnInit, OnDestroy {
         id: id,
       },
       header: 'Đặt lại mật khẩu',
-      width: '70%',
+      width: '40%',
     });
     const dialogRef = this.dialogService.dialogComponentRefMap.get(ref);
     const dynamicComponent = dialogRef?.instance as DynamicDialogComponent;
@@ -180,7 +180,7 @@ export class UserComponent implements OnInit, OnDestroy {
         id: id,
       },
       header: 'Đặt lại email',
-      width: '70%',
+      width: '40%',
     });
     const dialogRef = this.dialogService.dialogComponentRefMap.get(ref);
     const dynamicComponent = dialogRef?.instance as DynamicDialogComponent;
