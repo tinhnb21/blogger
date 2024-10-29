@@ -102,12 +102,17 @@ export class PostDetailComponent implements OnInit, OnDestroy {
           this.tags = repsonse.tags as string[];
 
           var categories = repsonse.categories as PostCategoryDto[];
-          categories.forEach((element) => {
-            this.postCategories.push({
-              value: element.id,
-              label: element.name,
-            });
-          });
+          // categories.forEach((element) => {
+          //   this.postCategories.push({
+          //     value: element.id,
+          //     label: element.name,
+          //   });
+          // });
+          this.postCategories = categories.map((x) => ({
+            name: x.name,
+            code: x.id,
+          }));
+
           if (this.utilService.isEmpty(this.config.data?.id) == false) {
             this.postApiClient
               .getPostTags(this.config.data.id)
@@ -131,6 +136,9 @@ export class PostDetailComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (response: PostDto) => {
           this.selectedEntity = response;
+          this.selectedEntity.categoryId = this.postCategories.find(
+            (x) => x.code == this.selectedEntity.categoryId
+          );
           this.buildForm();
           this.toggleBlockUI(false);
         },
@@ -160,13 +168,18 @@ export class PostDetailComponent implements OnInit, OnDestroy {
 
   private saveData() {
     this.toggleBlockUI(true);
+    let body = {
+      ...this.form.value,
+      categoryId: this.form.value.categoryId?.code,
+    };
+
     if (this.utilService.isEmpty(this.config.data?.id)) {
       this.postApiClient
-        .createPost(this.form.value)
+        .createPost(body)
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe({
           next: () => {
-            this.ref.close(this.form.value);
+            this.ref.close(body);
             this.toggleBlockUI(false);
           },
           error: () => {
@@ -175,13 +188,13 @@ export class PostDetailComponent implements OnInit, OnDestroy {
         });
     } else {
       this.postApiClient
-        .updatePost(this.config.data?.id, this.form.value)
+        .updatePost(this.config.data?.id, body)
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe({
           next: () => {
             this.toggleBlockUI(false);
 
-            this.ref.close(this.form.value);
+            this.ref.close(body);
           },
           error: () => {
             this.toggleBlockUI(false);

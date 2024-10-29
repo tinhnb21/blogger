@@ -37,7 +37,7 @@ export class PostComponent implements OnInit, OnDestroy {
   public selectedItems: PostInListDto[] = [];
   public keyword: string = '';
 
-  public categoryId?: string = null;
+  public categoryId?: any = null;
   public postCategories: any[] = [];
 
   constructor(
@@ -63,7 +63,7 @@ export class PostComponent implements OnInit, OnDestroy {
     this.postApiClient
       .getPostsPaging(
         this.keyword,
-        this.categoryId,
+        this.categoryId?.code,
         this.pageIndex,
         this.pageSize
       )
@@ -83,13 +83,8 @@ export class PostComponent implements OnInit, OnDestroy {
   loadPostCategories() {
     this.postCategoryApiClient
       .getPostCategories()
-      .subscribe((response: PostCategoryDto[]) => {
-        response.forEach((element) => {
-          this.postCategories.push({
-            value: element.id,
-            label: element.name,
-          });
-        });
+      .subscribe((res: PostCategoryDto[]) => {
+        this.postCategories = res.map((x) => ({ name: x.name, code: x.id }));
       });
   }
 

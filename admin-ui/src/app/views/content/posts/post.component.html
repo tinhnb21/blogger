@@ -19,7 +19,7 @@
               placeholder="Nhập từ khóa..." type="text" />
           </div>
           <div class="col">
-            <p-dropdown class="sty-drop" [options]="postCategories" (onChange)="loadData()"
+            <p-dropdown class="sty-drop" [options]="postCategories" optionLabel="name" (onChange)="loadData()"
               [style]="{ width: '100%', height: '36px' }" placeholder="Chọn danh mục" [showClear]="true"
               [(ngModel)]="categoryId">
             </p-dropdown>
