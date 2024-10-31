@@ -100,14 +100,7 @@ export class PostDetailComponent implements OnInit, OnDestroy {
         next: (repsonse: any) => {
           //Push categories to dropdown list
           this.tags = repsonse.tags as string[];
-
           var categories = repsonse.categories as PostCategoryDto[];
-          // categories.forEach((element) => {
-          //   this.postCategories.push({
-          //     value: element.id,
-          //     label: element.name,
-          //   });
-          // });
           this.postCategories = categories.map((x) => ({
             name: x.name,
             code: x.id,

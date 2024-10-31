@@ -60,7 +60,6 @@ namespace Blogger.Api.Controllers.AdminApi
                     {
                         tagId = Guid.NewGuid();
                         _unitOfWork.Tags.Add(new Tag() { Id = tagId, Name = tagName, Slug = tagSlug });
-
                     }
                     else
                     {
@@ -107,19 +106,16 @@ namespace Blogger.Api.Controllers.AdminApi
                     {
                         tagId = Guid.NewGuid();
                         _unitOfWork.Tags.Add(new Tag() { Id = tagId, Name = tagName, Slug = tagSlug });
-
                     }
                     else
                     {
                         tagId = tag.Id;
                     }
                     await _unitOfWork.Posts.AddTagToPost(id, tagId);
-
                 }
             }
 
             await _unitOfWork.CompleteAsync();
-
             return Ok();
         }
 
@@ -177,8 +173,6 @@ namespace Blogger.Api.Controllers.AdminApi
             var result = await _unitOfWork.Posts.GetAllSeries(postId);
             return Ok(result);
         }
-
-
 
         [HttpGet("approve/{id}")]
         [Authorize(Posts.Approve)]

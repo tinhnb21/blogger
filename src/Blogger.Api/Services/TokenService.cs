@@ -25,7 +25,8 @@ namespace Blogger.Api.Services
                     issuer: _jwtTokenSettings.Issuer,
                     audience: _jwtTokenSettings.Issuer,
                     claims: claims,
-                    expires: DateTime.Now.AddHours(_jwtTokenSettings.ExpireInHours),
+                    //expires: DateTime.Now.AddHours(_jwtTokenSettings.ExpireInHours),
+                    expires: DateTime.Now.AddMinutes(1),
                     signingCredentials: signInCredentials
                 );
 

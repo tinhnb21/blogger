@@ -69,6 +69,7 @@ export class TokenInterceptor implements HttpInterceptor {
         accessToken: token!,
         refreshToken: refreshToken!,
       });
+
       return this.tokenApiClient.refresh(tokenRequest).pipe(
         tap((response: AuthenticatedResult) => {
           this.refreshTokenInProgress = false;
@@ -99,19 +100,22 @@ export class TokenInterceptor implements HttpInterceptor {
     }
     // Invalid token error
     else if (error.status === 401) {
-      return this.refreshToken().pipe(
-        switchMap(() => {
-          request = this.addAuthHeader(request);
-          return next.handle(request);
-        }),
-        catchError((e) => {
-          if (e.status !== 401) {
-            return this.handleResponseError(e);
-          } else {
-            this.logout();
-          }
-        })
-      );
+      return this.refreshToken()
+        .pipe(
+          switchMap(() => {
+            request = this.addAuthHeader(request);
+            return next.handle(request);
+          }),
+          catchError((e) => {
+            if (e.status !== 401) {
+              return this.handleResponseError(e);
+            } else {
+              this.logout();
+              return throwError(e);
+            }
+          })
+        )
+        .toPromise();
     }
 
     // Access denied error
