@@ -10,10 +10,11 @@ export class PermissionDirective implements OnInit {
     private el: ElementRef,
     private tokenService: TokenStorageService
   ) {}
+
   ngOnInit() {
     var loggedInUser = this.tokenService.getUser();
     if (loggedInUser) {
-      var listPermission = loggedInUser.permissions;
+      var listPermission = JSON.parse(loggedInUser.permissions);
       if (
         listPermission != null &&
         listPermission != '' &&

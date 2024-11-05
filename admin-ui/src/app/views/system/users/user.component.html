@@ -3,13 +3,13 @@
     <p-header> Quản lý người dùng </p-header>
     <div class="row">
       <div class="col">
-        <button appPermission appPolicy="Permissons.Users.Create" pButton type="button" label="Thêm mới"
+        <button appPermission appPolicy="Permissions.Users.Create" pButton type="button" label="Thêm mới"
           icon="fa fa-plus" (click)="showAddModal()"
           class="p-button-sm p-button-success ms-1 b-r-4 small-button"></button>
-        <button appPermission appPolicy="Permissons.Users.Delete" pButton type="button" label="Xóa" icon="fa fa-trash"
+        <button appPermission appPolicy="Permissions.Users.Delete" pButton type="button" label="Xóa" icon="fa fa-trash"
           *ngIf="selectedItems.length > 0" (click)="deleteItems()"
           class="p-button-sm p-button-danger ms-1 b-r-4 small-button"></button>
-        <button appPermission appPolicy="Permissons.Users.Edit" pButton type="button" label="Sửa" icon="fa fa-edit"
+        <button appPermission appPolicy="Permissions.Users.Edit" pButton type="button" label="Sửa" icon="fa fa-edit"
           *ngIf="selectedItems.length == 1" (click)="showEditModal()"
           class="p-button-sm p-button-warning ms-1 b-r-4 small-button"></button>
       </div>

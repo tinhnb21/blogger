@@ -3,12 +3,13 @@
     <p-header> Quản lý bài viết </p-header>
     <div class="row">
       <div class="col-4">
-        <button appPermission appPolicy="Permissons.Posts.Add" pButton type="button" label="Thêm mới" icon="fa fa-plus"
-          (click)="showAddModal()" class="p-button-sm p-button-success ms-1 b-r-4 small-button"></button>
-        <button appPermission appPolicy="Permissons.Posts.Delete" pButton type="button" label="Xóa" icon="fa fa-trash"
+        <button appPermission appPolicy="Permissions.Posts.Create" pButton type="button" label="Thêm mới"
+          icon="fa fa-plus" (click)="showAddModal()"
+          class="p-button-sm p-button-success ms-1 b-r-4 small-button"></button>
+        <button appPermission appPolicy="Permissions.Posts.Delete" pButton type="button" label="Xóa" icon="fa fa-trash"
           class="p-button-sm p-button-danger ms-1 b-r-4 small-button" *ngIf="selectedItems.length > 0"
           (click)="deleteItems()"></button>
-        <button appPermission appPolicy="Permissons.Posts.Edit" pButton type="button" label="Sửa" icon="fa fa-edit"
+        <button appPermission appPolicy="Permissions.Posts.Edit" pButton type="button" label="Sửa" icon="fa fa-edit"
           class="p-button-sm p-button-warning ms-1 b-r-4 small-button" *ngIf="selectedItems.length == 1"
           (click)="showEditModal()"></button>
       </div>
@@ -70,18 +71,18 @@
             <td>
               <button pButton pRipple type="button" icon="pi pi-list" pTooltip="Loạt bài" tooltipPosition="top"
                 title="Loạt bài" (click)="addToSeries(row.id)" class="p-button-rounded p-button-text"></button>
-              <button *ngIf="row.status != 3" pButton appPermission appPolicy="Permissons.Posts.Approve" pRipple
+              <button *ngIf="row.status != 3" pButton appPermission appPolicy="Permissions.Posts.Approve" pRipple
                 title="Duyệt bài" type="button" icon="pi pi-check" pTooltip="Duyệt bài" tooltipPosition="top"
                 (click)="approve(row.id)" class="p-button-rounded p-button-text p-button-success"></button>
               <button *ngIf="row.status != 3 && row.status != 1" pButton pRipple type="button" icon="pi pi-forward"
                 title="Gửi duyệt" pTooltip="Gửi duyệt" tooltipPosition="top" (click)="sendToApprove(row.id)"
-                appPermission appPolicy="Permissons.Posts.Edit"
+                appPermission appPolicy="Permissions.Posts.Edit"
                 class="p-button-rounded p-button-text p-button-danger"></button>
               <button *ngIf="row.status != 3" pButton pRipple type="button" icon="pi pi-backward" pTooltip="Trả lại"
                 title="Trả lại" tooltipPosition="top" (click)="reject(row.id)" appPermission
-                appPolicy="Permissons.Posts.Approve" class="p-button-rounded p-button-text p-button-danger"></button>
+                appPolicy="Permissions.Posts.Approve" class="p-button-rounded p-button-text p-button-danger"></button>
               <button pButton pRipple type="button" icon="pi pi-history" pTooltip="Xem lịch sử" tooltipPosition="top"
-                title="Xem lịch sử" (click)="showLogs(row.id)" appPermission appPolicy="Permissons.Posts.View"
+                title="Xem lịch sử" (click)="showLogs(row.id)" appPermission appPolicy="Permissions.Posts.View"
                 class="p-button-rounded p-button-text p-button-info"></button>
             </td>
           </tr>

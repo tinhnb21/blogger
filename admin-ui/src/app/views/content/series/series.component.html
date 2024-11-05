@@ -4,15 +4,15 @@
   </p-header>
   <div class="row">
     <div class="col-6">
-      <button appPermission appPolicy="Permissons.Series.Create" pButton type="button" label="Thêm mới"
+      <button appPermission appPolicy="Permissions.Series.Create" pButton type="button" label="Thêm mới"
         icon="fa fa-plus" (click)="showAddModal()" class="p-button-sm ms-1 p-button-info b-r-4 small-button"></button>
-      <button appPermission appPolicy="Permissons.Series.Delete" pButton type="button" label="Xóa" icon="fa fa-trash"
+      <button appPermission appPolicy="Permissions.Series.Delete" pButton type="button" label="Xóa" icon="fa fa-trash"
         class="p-button-sm p-button-danger ms-1 b-r-4 small-button" *ngIf="selectedItems.length > 0"
         (click)="deleteItems()"></button>
-      <button appPermission appPolicy="Permissons.Series.Edit" pButton type="button" label="Sửa" icon="fa fa-edit"
+      <button appPermission appPolicy="Permissions.Series.Edit" pButton type="button" label="Sửa" icon="fa fa-edit"
         class="p-button-sm ms-1 b-r-4 small-button p-button-help" *ngIf="selectedItems.length== 1"
         (click)="showEditModal()"></button>
-      <button appPermission appPolicy="Permissons.Series.Edit" pButton type="button" label="Bài viết" icon="fa fa-edit"
+      <button appPermission appPolicy="Permissions.Series.Edit" pButton type="button" label="Bài viết" icon="fa fa-edit"
         class="p-button-sm ms-1 b-r-4 small-button p-button-info" *ngIf="selectedItems.length== 1"
         (click)="showPosts()"></button>
     </div>

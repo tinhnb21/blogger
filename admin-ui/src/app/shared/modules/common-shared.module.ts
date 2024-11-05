@@ -6,6 +6,6 @@ import { PermissionDirective } from './permission.directive';
 @NgModule({
   imports: [CommonModule],
   declarations: [ValidationMessageComponent, PermissionDirective],
-  exports: [ValidationMessageComponent],
+  exports: [ValidationMessageComponent, PermissionDirective],
 })
 export class CommonSharedModule {}
