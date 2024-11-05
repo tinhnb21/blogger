@@ -29,15 +29,16 @@
 }
 
 .small-input {
-  height: 36px;
+  height: 32px;
+  font-size: 13px;
 }
 
 .small-button {
-  height: 36px;
+  height: 32px;
 }
 
 .h-32 {
-  height: 22px;
+  height: 32px;
 }
 
 .flex-col {
@@ -53,3 +54,46 @@
   align-items: center !important;
 }
 
+button {
+  font-size: 14px !important;
+}
+
+tr > td {
+  font-size: 14px !important;
+}
+
+tr > th {
+  font-size: 14px !important;
+}
+
+.p-dropdown .p-dropdown-label.p-placeholder {
+  font-size: 13px !important;
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+  font-size: 13px !important;
+}
+
+label {
+  font-size: 14px;
+}
+
+.p-dialog-header > span {
+  font-size: 18px !important;
+}
+
+.p-panel-title.ng-star-inserted {
+  font-size: 16px;
+}
+
+.ng-star-inserted {
+  font-size: 14px;
+}
+
+textarea {
+  font-size: 13px;
+}
+
+input, button, select, optgroup, textarea {
+  font-size: 13px !important;
+}

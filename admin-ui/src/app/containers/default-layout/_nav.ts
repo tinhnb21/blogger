@@ -47,7 +47,7 @@ export const navItems: INavData[] = [
   {
     name: 'Nhuận bút',
     url: '/royalty',
-    iconComponent: { name: 'cil-puzzle' },
+    iconComponent: { name: 'cil-pen' },
     children: [
       {
         name: 'Thống kê tháng',

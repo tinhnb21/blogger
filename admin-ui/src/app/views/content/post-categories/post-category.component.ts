@@ -69,7 +69,7 @@ export class PostCategoryComponent implements OnInit, OnDestroy {
   showAddModal() {
     const ref = this.dialogService.open(PostCategoryDetailComponent, {
       header: 'Thêm mới loại bài viết',
-      width: '70%',
+      width: '40%',
     });
     const dialogRef = this.dialogService.dialogComponentRefMap.get(ref);
     const dynamicComponent = dialogRef?.instance as DynamicDialogComponent;
@@ -102,7 +102,7 @@ export class PostCategoryComponent implements OnInit, OnDestroy {
         id: id,
       },
       header: 'Cập nhật loại bài viết',
-      width: '70%',
+      width: '40%',
     });
     const dialogRef = this.dialogService.dialogComponentRefMap.get(ref);
     const dynamicComponent = dialogRef?.instance as DynamicDialogComponent;
