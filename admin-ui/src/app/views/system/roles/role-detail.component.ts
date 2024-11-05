@@ -53,7 +53,7 @@ export class RoleDetailComponent implements OnInit, OnDestroy {
       this.saveBtnName = 'Cập nhật';
       this.closeBtnName = 'Hủy';
     } else {
-      this.saveBtnName = 'Thêm';
+      this.saveBtnName = 'Lưu';
       this.closeBtnName = 'Đóng';
     }
   }

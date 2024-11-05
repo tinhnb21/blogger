@@ -34,6 +34,7 @@ const routes: Routes = [
     component: SeriesComponent,
     canActivate: [AuthGuard],
     data: {
+      title: 'Loạt bài',
       requiredPolicy: 'Permissions.Series.View',
     },
   },

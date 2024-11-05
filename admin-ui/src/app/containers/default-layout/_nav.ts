@@ -35,13 +35,13 @@ export const navItems: INavData[] = [
           policyName: 'Permissions.Series.View',
         },
       },
-      {
-        name: 'Nhuận bút',
-        url: '/content/royalty',
-        attributes: {
-          policyName: 'Permissions.Loyalty.View',
-        },
-      },
+      // {
+      //   name: 'Nhuận bút',
+      //   url: '/content/royalty',
+      //   attributes: {
+      //     policyName: 'Permissions.Loyalty.View',
+      //   },
+      // },
     ],
   },
   {
