@@ -7,7 +7,8 @@
     </div>
 
     <ng-template pTemplate="footer">
-      <button type="submit" pButton [disabled]="!form.valid || btnDisabled" class="b-r-4 small-button">
+      <button type="submit" appPermission appPolicy="Permissions.Roles.Edit" pButton
+        [disabled]="!form.valid || btnDisabled" class="b-r-4 small-button">
         {{ saveBtnName }}
       </button>
     </ng-template>
