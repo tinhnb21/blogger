@@ -10,7 +10,7 @@
           </app-validation-message>
         </div>
         <div class="field m-b-16 col-6 md:col-6">
-          <label class="m-b-4" for="slug">Slug<span class="required">*</span></label>
+          <label class="m-b-4" for="slug">Slug <span class="required">*</span></label>
           <input class="small-input" id="slug" type="text" pInputText [pKeyFilter]="noSpecial" formControlName="slug"
             placeholder="Nhập..." [style]="{ width: '100%' }" />
           <app-validation-message [entityForm]="form" fieldName="slug" [validationMessages]="validationMessages">
